@@ -3,7 +3,7 @@ import random
 import time
 import json
 
-readfile = input("Load File to use: ")
+readfile = input("Load JSON File to use: ")
 
 
 with open(readfile, "r") as f:
@@ -14,21 +14,20 @@ time.sleep(1)
 
 # Game loop
 def play_game():
-    print("Welcome to the French-German word guessing game!")
-    print("Match the French word with its German translation.")
-    print("The full French word will be displayed.")
+    print("Welcome to the Language-to-Language word guessing game!")
+    print("Match your languages' word with its translation.")
 
     word_list = list(word_pairs.items())
     random.shuffle(word_list)  
     while True:
-        for german_word, french_word in word_list:
-            print(f"\nFrench word: {french_word}")
-            guess = input("What is the German word? ").lower()
+        for language2_word, language1_word in word_list:
+            print(f"\nYour word: {language1_word}")
+            guess = input("What is the word? ").lower()
 
-            if guess == german_word.lower():
+            if guess == language2_word.lower():
                 print("Correct!")
             else:
-                print(f"Incorrect! The correct word is '{german_word}'.")
+                print(f"Incorrect! The correct word is '{language2_word}'.")
         
         print("\nAll word pairs have been used. Shuffling and starting over!")
         random.shuffle(word_list)
